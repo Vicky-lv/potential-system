@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22757" systemVersion="24E268" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="NO" userDefinedModelVersionIdentifier="">
+    <entity name="CareActivity" representedClassName="CareActivity" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="type" attributeType="String"/>
+        <relationship name="plant" maxCount="1" deletionRule="Nullify" destinationEntity="Plant" inverseName="careActivities" inverseEntity="Plant"/>
+    </entity>
+    <entity name="Plant" representedClassName="Plant" syncable="YES" codeGenerationType="class">
+        <attribute name="addDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="healthStatus" attributeType="String"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="species" attributeType="String"/>
+        <relationship name="careActivities" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CareActivity" inverseName="plant" inverseEntity="CareActivity"/>
+    </entity>
+</model> 
